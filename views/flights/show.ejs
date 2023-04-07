@@ -12,4 +12,29 @@
 </section>
 </br>
 
+
+<% if (tickets.length) { %>
+    <table class="seating">
+        <thead>
+            <th>Seat</th>
+            <th>Price</th>
+        </thead>
+        </table>
+    </br>
+        <tbody>
+            <%tickets.forEach(function(t) {%>
+                <td><%= t.seat%></td>
+                <td><%= t.price%></td>
+                <% }); %>
+            </br>
+        </tbody>
+    </table>
+    <% } else {%>
+        <h5>No Tickets Created</h5>
+    <% } %>
+
+  <a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
+
+
+
 <%- include('../partials/footer') %>
