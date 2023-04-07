@@ -3,7 +3,8 @@ const Flight = require('../models/flight');
 module.exports = {
     index,
     show,
-    new: newFlight
+    new: newFlight,
+    create: createFlight
 }
 
 // flights index
@@ -22,4 +23,10 @@ async function show(req, res) {
 // new flight path so we render it
 function newFlight(req, res) {
     res.render('flights/new', {title: 'Add A Flight'});
+}
+
+function createFlight(req, res) { 
+    const flight = new Flight(req.body);
+    flight.save()
+    res.redirect('/flights');
 }
