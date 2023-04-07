@@ -13,5 +13,8 @@ router.get('/new', flightsCtrl.new);
 router.get('/:id', flightsCtrl.show);
 // POST /flights
 router.post('/', flightsCtrl.create)
+// POST-DELETE /flights/:id
+router.post('/:id', flightsCtrl.delete);
+
 
 module.exports = router;
