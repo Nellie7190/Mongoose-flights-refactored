@@ -13,6 +13,48 @@
 </br>
 
 
+<h3>Add to Trip</h3>
+<!-- http://localhost:3000/flights/123/details -->
+<form id="add-review-form" method="POST" 
+action="/flights/<%= flight._id %>/destinations" >
+    <label>Add a Destination:
+      <select type="text" name="airport">
+        <option style="display:none">
+            <option value="AUS">AUS</option>
+            <option value="DEN">DEN</option>
+            <option value="DFW">DFW</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+      </select>
+    </label></br>
+      <label>Arrival Date:
+            <input type="datetime-local" name="arrival" value="2023-08-20">
+    </label></br>
+    <input type="submit" value="Update Trip">
+  </form>
+
+  <% if (flight.destinations.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% flight.destinations.forEach(function(f) {%>
+                <tr>
+                    <td><%= f.airport %></td>
+                    <td><%= f.arrival %></td>
+                </tr>
+              <% }); %>  
+        </tbody>
+     </table>
+<% } else { %>
+<h5>No Arrivals Yet </h5>
+<% } %> 
+
+
 <% if (tickets.length) { %>
     <table class="seating">
         <thead>
@@ -34,7 +76,6 @@
     <% } %>
 
   <a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
-
 
 
 <%- include('../partials/footer') %>
