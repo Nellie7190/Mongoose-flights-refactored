@@ -7,6 +7,8 @@ const flightsCtrl = require('../controllers/flights');
 /* GET flights listing. */
 // http://localhost:3000/
 router.get('/', flightsCtrl.index);
+// GET '/flights/:id'
+router.get('/:id', flightsCtrl.show);
 
 
 module.exports = router;
