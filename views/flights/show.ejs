@@ -2,60 +2,14 @@
 <h2>Flight Details</h2>
 <section class='flight-details'>
     <div>Airline:</div>
-    <div><%= detail.airline %></div>
+    <div><%= flight.airline %></div>
     <div>Airport:</div>
-    <div><%= detail.airport %></div>
+    <div><%= flight.airport %></div>
     <div>FlightNo:</div>
-    <div><%= detail.flightNo %></div>
+    <div><%= flight.flightNo %></div>
     <div>Depart Date:</div>
-    <div><%= detail.depart %></div>
+    <div><%= flight.depart %></div>
 </section>
 </br>
-<% if (detail.destinations.length) { %>
-    <table>
-        <thead>
-            <tr>
-                <th>Destination</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% detail.destinations.forEach(function(f) {%>
-                <tr>
-                    <td><%= f.airport %></td>
-                    <td><%= f.arrival %></td>
-                </tr>
-              <% }); %>  
-        </tbody>
-     </table>
-<% } else { %>
-<h5>No Arrivals Yet </h5>
-<% } %> 
-
-   
-
-      <% if (tickets.length) { %>
-        <table class="seating">
-            <thead>
-                <th>Seat</th>
-                <th>Price</th>
-            </thead>
-            </table>
-        </br>
-            <tbody>
-                <%tickets.forEach(function(t) {%>
-                    <td><%= t.seat%></td>
-                    <td><%= t.price%></td>
-                    <% }); %>
-                </br>
-            </tbody>
-        </table>
-        <% } else {%>
-            <h5>No Tickets Created</h5>
-        <% } %>
-
-      <a href="/flights/<%= detail._id %>/tickets/new">New Ticket</a>
-    
-
 
 <%- include('../partials/footer') %>
