@@ -10,7 +10,7 @@ module.exports = {
 // flights index
 async function index(req, res) {
     const flights = await Flight.find({})
-    res.render('flights/index', { flights });
+    res.render('flights/index', {title: 'All Flights', flights });
 }
 
 // flights show
